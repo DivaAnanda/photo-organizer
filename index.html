@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Organizer</title>
+    <script type="module" src="/src/main.ts" defer></script>
+  </head>
+  <body>
+    <main id="app" class="app mode-copy">
+      <header class="topbar">
+        <button id="pick-source" class="btn">Open folder…</button>
+        <span id="source-label" class="source-label">No folder loaded</span>
+        <span class="spacer"></span>
+        <label class="mode-toggle">
+          Mode:
+          <select id="mode-select">
+            <option value="copy">Copy (safe)</option>
+            <option value="move">Move</option>
+          </select>
+        </label>
+        <button id="info-toggle" class="btn" title="Toggle photo info (i)">Info</button>
+        <span id="counter" class="counter">0 / 0</span>
+      </header>
+
+      <section class="viewer" id="viewer">
+        <div id="viewer-empty" class="viewer-empty">
+          <p>Open a folder to begin.</p>
+          <p class="hint">Bind keys 1–9 to destination folders, then press a number to send the current photo there.</p>
+        </div>
+        <img id="viewer-img" class="viewer-img hidden" alt="" />
+        <div id="viewer-raw" class="viewer-raw hidden">
+          <div class="raw-badge">RAW</div>
+          <div id="viewer-raw-name" class="raw-name"></div>
+        </div>
+        <div id="viewer-meta" class="viewer-meta"></div>
+
+        <aside id="metadata-panel" class="metadata-panel hidden">
+          <div class="metadata-header">
+            <span>Photo Info</span>
+            <button id="metadata-close" class="metadata-close" title="Close">×</button>
+          </div>
+          <dl id="metadata-list" class="metadata-list"></dl>
+        </aside>
+      </section>
+
+      <section class="filmstrip" id="filmstrip"></section>
+
+      <section class="slots" id="slots"></section>
+
+      <div id="toast" class="toast hidden"></div>
+    </main>
+  </body>
+</html>
